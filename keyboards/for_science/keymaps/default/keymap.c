@@ -60,23 +60,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_BASE] = LAYOUT_split_4x5_3(
-    KC_TAB,  KC_ESC,  KC_LPRN, KC_LCBR, KC_LBRC,    KC_RBRC, KC_RCBR, KC_RPRN, KC_QUOT, KC_BSPC,
-    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
-    SFT_A,   KC_S,    KC_D,    KC_F,    KC_G,       KC_H,    KC_J,    KC_K,    KC_L,    KC_ENT,
-    SFT_Z,   LAY_X,   KC_C,    KC_V,    KC_B,       KC_N,    KC_M,    KC_COMM, KC_DOT,  LAY_SLS,
-                      KC_LCTL, KC_LGUI, KC_LALT,    LAY_SPC, LAYER,   KC_RSFT
+    KC_TAB,  KC_ESC,  KC_LPRN, KC_LCBR, KC_LBRC,    KC_BSPC, KC_QUOT, KC_RPRN, KC_RCBR, KC_RBRC,
+    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_P,    KC_O,    KC_I,    KC_U,    KC_Y,
+    SFT_A,   KC_S,    KC_D,    KC_F,    KC_G,       KC_ENT,  KC_L,    KC_K,    KC_J,    KC_H,
+    SFT_Z,   LAY_X,   KC_C,    KC_V,    KC_B,       LAY_SLS, KC_DOT,  KC_COMM, KC_M,    KC_N,
+                      KC_LCTL, KC_LGUI, KC_LALT,    KC_RSFT, LAYER,   LAY_SPC
 ),
 
 [_LAYER] = LAYOUT_split_4x5_3(
-    KC_TILD, KC_GRV,  KC_LABK, KC_UNDS, KC_MINS,    KC_PLUS, KC_EQL,  KC_RABK, KC_BSLS, KC_DEL,
-    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_6,    KC_7,    KC_8,    KC_9,    KC_0,
-    SFT_F1,  KC_F2,   KC_F3,   KC_F4,   KC_F5,      KC_PGUP, KC_HOME, KC_UP,   KC_END,  KC_SCLN,
-    SFT_F6,  LAY_F7,  KC_F8,   KC_F9,   KC_F10,     KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______,
-                      _______, _______, _______,    FUNCT,   _______, _______
+    KC_TILD, KC_GRV,  KC_LABK, KC_UNDS, KC_MINS,    KC_DEL,  KC_BSLS, KC_RABK, KC_EQL,  KC_PLUS,
+    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_0,    KC_9,    KC_8,    KC_7,    KC_6,
+    SFT_F1,  KC_F2,   KC_F3,   KC_F4,   KC_F5,      KC_SCLN, KC_END,  KC_UP,   KC_HOME, KC_PGUP,
+    SFT_F6,  LAY_F7,  KC_F8,   KC_F9,   KC_F10,     _______, KC_RGHT, KC_DOWN, KC_LEFT, KC_PGDN,
+                      _______, _______, _______,    _______, _______, FUNCT
 ),
 
 [_MOD_LAYER] = LAYOUT_split_4x5_3(
-    KC_TILD, _______, _______, _______, _______,    KC_Q,    _______, _______, _______, _______,
+    KC_TILD, _______, _______, _______, _______,    _______, _______, _______, _______, KC_Q,
     KC_TAB,  _______, _______, _______, _______,    _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______,
@@ -84,7 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_FUNCT] = LAYOUT_split_4x5_3(
-    QK_BOOT,   _______, _______, _______, LOCK,       MAC_LCK, _______, _______, _______, MAGIC_SWAP_LALT_LGUI,
+    QK_BOOT,   _______, _______, _______, LOCK,     MAGIC_SWAP_LALT_LGUI, _______, _______, _______, MAC_LCK,
     _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______,
