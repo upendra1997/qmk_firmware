@@ -81,9 +81,9 @@
                 {"label": "LT2", "matrix": [4, 3], "x": 3, "y": 4},
                 {"label": "LT3", "matrix": [4, 4], "x": 4, "y": 4},
 
-                {"label": "RT1", "matrix": [9, 0], "x": 6.25, "y": 4},
-                {"label": "RT2", "matrix": [9, 1], "x": 7.25, "y": 4},
-                {"label": "RT3", "matrix": [9, 2], "x": 8.25, "y": 4}
+                {"label": "RT1", "matrix": [9, 2], "x": 6.25, "y": 4},
+                {"label": "RT2", "matrix": [9, 3], "x": 7.25, "y": 4},
+                {"label": "RT3", "matrix": [9, 4], "x": 8.25, "y": 4}
             ]
         }
     }
