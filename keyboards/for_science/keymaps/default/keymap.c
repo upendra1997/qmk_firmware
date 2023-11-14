@@ -48,11 +48,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |   Q   |   W   |   E   |   R   |   T   |   |   Y   |   U   |   I   |   O   |   P   |
  * |   1   |   2   |   3   |   4   |   5   |   |   6   |   7   |   8   |   9   |   0   |
  * |-------+-------+-------+-------+-------+   |-------+-------+-------+-------+-------|
- * |   A   |   S   |   D   |   F   |   G   |   |   H   |   J   |   K   |   L   | Enter |
- * |  F1   |  F2      F3   |  F4   |  F5   |   | PgUp  | Home  |  Up   |  End  |   ;   |
+ * |   A   |   S   |   D   |   F   |   G   |   |   H   |   J   |   K   |   L   |   ;   |
+ * |  F1   |  F2      F3   |  F4   |  F5   |   |  F11  |   🔉  |  Up   |   🔊  | Enter |
  * |-Shift-+-------+-------+-------+-------+   |-------+-------+-------+-------+-------|
  * |   Z   |   X   |   C   |   V   |   B   |   |   N   |   M   |   ,   |   .   |   /   |
- * |  F6   |  F7   |  F8   |  F9   |  F10  |   | PgDn  | Left  | Down  | Right |       |
+ * |  F6   |  F7   |  F8   |  F9   |  F10  |   |  F12  | Left  | Down  | Right |       |
  * `-Shift---Layer-+-------+-------+-------+   |-------+-------+-------+---------Layer-'
  *                 | Ctrl  |  Gui  |  Alt  |   | Space | Layer | Shift |
  *                 |       |       |       |   | Funct |       |       |
@@ -62,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BASE] = LAYOUT_split_4x5_3(
     KC_TAB,  KC_ESC,  KC_LPRN, KC_LCBR, KC_LBRC,    KC_BSPC, KC_QUOT, KC_RPRN, KC_RCBR, KC_RBRC,
     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_P,    KC_O,    KC_I,    KC_U,    KC_Y,
-    SFT_A,   KC_S,    KC_D,    KC_F,    KC_G,       KC_ENT,  KC_L,    KC_K,    KC_J,    KC_H,
+    SFT_A,   KC_S,    KC_D,    KC_F,    KC_G,       KC_SCLN, KC_L,    KC_K,    KC_J,    KC_H,
     SFT_Z,   LAY_X,   KC_C,    KC_V,    KC_B,       LAY_SLS, KC_DOT,  KC_COMM, KC_M,    KC_N,
                       KC_LCTL, KC_LGUI, KC_LALT,    KC_RSFT, LAYER,   LAY_SPC
 ),
@@ -70,8 +70,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LAYER] = LAYOUT_split_4x5_3(
     KC_TILD, KC_GRV,  KC_LABK, KC_UNDS, KC_MINS,    KC_DEL,  KC_BSLS, KC_RABK, KC_EQL,  KC_PLUS,
     KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_0,    KC_9,    KC_8,    KC_7,    KC_6,
-    SFT_F1,  KC_F2,   KC_F3,   KC_F4,   KC_F5,      KC_SCLN, KC_END,  KC_UP,   KC_HOME, KC_PGUP,
-    SFT_F6,  LAY_F7,  KC_F8,   KC_F9,   KC_F10,     _______, KC_RGHT, KC_DOWN, KC_LEFT, KC_PGDN,
+    SFT_F1,  KC_F2,   KC_F3,   KC_F4,   KC_F5,      KC_ENT,  KC_VOLU, KC_UP,   KC_VOLD, KC_F11,
+    SFT_F6,  LAY_F7,  KC_F8,   KC_F9,   KC_F10,     _______, KC_RGHT, KC_DOWN, KC_LEFT, KC_F12,
                       _______, _______, _______,    _______, _______, FUNCT
 ),
 
@@ -85,9 +85,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_FUNCT] = LAYOUT_split_4x5_3(
     QK_BOOT, DB_TOGG, QK_LOCK, QK_LEAD, MAC_LCK,    MAGIC_SWAP_LALT_LGUI, _______, _______, _______, LOCK,
-    QK_REP, QK_AREP, _______, _______, _______,     _______, _______, _______, _______, _______,
-    DT_DOWN, DT_PRNT, DT_UP, EE_CLR, QK_RBT,        _______, _______, _______, _______, _______,
-    CW_TOGG, AC_TOGG, _______, _______, _______,    _______, _______, _______, _______, _______,
+    QK_REP,  QK_AREP, DT_UP,   EE_CLR,  QK_RBT,     _______, _______, _______, _______, _______,
+    DT_DOWN, DT_PRNT, _______, _______, KC_PGUP,    _______, _______, _______, _______, _______,
+    CW_TOGG, AC_TOGG, KC_HOME, KC_END,  KC_PGDN,    _______, _______, _______, _______, _______,
                       DM_REC1, DM_RSTP, DM_PLY1,    _______, _______, _______
 ),
 
