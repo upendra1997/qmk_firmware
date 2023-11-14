@@ -85,8 +85,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_FUNCT] = LAYOUT_split_4x5_3(
     QK_BOOT, DB_TOGG, QK_LOCK, QK_LEAD, MAC_LCK,    MAGIC_SWAP_LALT_LGUI, _______, _______, _______, LOCK,
-    QK_REP,  QK_AREP, DT_UP,   EE_CLR,  QK_RBT,     _______, _______, _______, _______, _______,
-    DT_DOWN, DT_PRNT, _______, _______, KC_PGUP,    _______, _______, _______, _______, _______,
+    QK_REP,  QK_AREP, _______, EE_CLR,  QK_RBT,     _______, _______, _______, _______, _______,
+    DT_DOWN, DT_PRNT, DT_UP,   _______, KC_PGUP,    _______, _______, _______, _______, _______,
     CW_TOGG, AC_TOGG, KC_HOME, KC_END,  KC_PGDN,    _______, _______, _______, _______, _______,
                       DM_REC1, DM_RSTP, DM_PLY1,    _______, _______, _______
 ),
