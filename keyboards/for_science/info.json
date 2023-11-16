@@ -25,7 +25,6 @@
         "extrakey": true,
         "mousekey": true,
         "caps_word": true,
-        "combo": true,
         "leader": true,
         "autocorrect": true,
         "repeat_key": true,
