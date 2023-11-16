@@ -30,13 +30,12 @@ typedef enum {
   SWITCH
 } custom_keycodes;
 
-#define SFT_Z SFT_T(KC_Z)
-#define SFT_SCLN SFT_T(KC_SCLN)
-#define SFT_F6 SFT_T(KC_F6)
+#define SFT_Z RSFT_T(KC_Z)
+#define SFT_SCLN RSFT_T(KC_SCLN)
+#define SFT_F6 LSFT_T(KC_F6)
 #define LAY_A LT(_LAYER, KC_A)
 #define LAY_F1 LT(_LAYER, KC_F1)
-#define SFT_SLS SFT_T(KC_SLSH)
-#define SFT_Z SFT_T(KC_Z)
+#define SFT_SLS RSFT_T(KC_SLSH)
 #define LAY_SPC LT(_LAYER, KC_SPACE)
 
 #define LOCK LGUI(KC_L)
@@ -60,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |-Layer-+-------+-------+-------+-------+   |-------+-------+-------+-------+-------|
  * |   Z   |   X   |   C   |   V   |   B   |   |   N   |   M   |   ,   |   .   |   /   |
  * |  F6   |  F7   |  F8   |  F9   |  F10  |   |  F12  | Left  | Down  | Right |       |
- * `-Shift---------+-------+-------+-------+   |-------+-------+-------+---------Layer-'
+ * `-Shift---------+-------+-------+-------+   |-------+-------+-------+---------Shift-'
  *                 | Ctrl  |  Gui  |  Alt  |   | Space | Layer | Shift |
  *                 |       |       |       |   | Funct |       |       |
  *                 `------------------------   `-Layer-----------------'
