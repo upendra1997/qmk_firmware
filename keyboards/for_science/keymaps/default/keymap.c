@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_DVORAK] = LAYOUT_split_4x5_3(
-    KC_TAB,   KC_ESC,  KC_LPRN, KC_LCBR, KC_LBRC,    KC_BSPC, KC_QUOT, KC_RPRN, KC_RCBR, KC_RBRC,
+    KC_TAB,   KC_ESC,  KC_LPRN, KC_LCBR, KC_LBRC,    KC_BSPC, KC_SLSH, KC_RPRN, KC_RCBR, KC_RBRC,
     KC_QUOT,  KC_COMM, KC_DOT,  KC_P,    KC_Y,       KC_L,    KC_R,    KC_C,    KC_G,    KC_F,
     LAY_A,    KC_O,    KC_E,    KC_U,    KC_I,       KC_S,    KC_N,    KC_T,    KC_H,    KC_D,
     SFT_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,       SFT_Z,   KC_V,    KC_W,    KC_M,    KC_B,
