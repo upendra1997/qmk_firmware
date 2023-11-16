@@ -17,12 +17,18 @@
 
 // Defines names for use in layer keycodes and the keymap
 enum layer_names {
+    _DVORAK = 0,
     _QWERTY,
-    _DVORAK,
     _LAYER,
     _MOD_LAYER,
     _FUNCT
 };
+
+typedef enum {
+  DVORAK = SAFE_RANGE,
+  QWERTY,
+  SWITCH
+} custom_keycodes;
 
 #define SFT_Z SFT_T(KC_Z)
 #define SFT_SCLN SFT_T(KC_SCLN)
@@ -38,9 +44,6 @@ enum layer_names {
 
 #define LAYER MO(_LAYER)
 #define FUNCT MO(_FUNCT)
-
-#define QWERTY DF(_QWERTY)
-#define DVORAK DF(_DVORAK)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -63,20 +66,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                 `------------------------   `-Layer-----------------'
  */
 
-[_QWERTY] = LAYOUT_split_4x5_3(
-    KC_TAB,  KC_ESC,  KC_LPRN, KC_LCBR, KC_LBRC,    KC_BSPC, KC_QUOT, KC_RPRN, KC_RCBR, KC_RBRC,
-    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_P,    KC_O,    KC_I,    KC_U,    KC_Y,
-    LAY_A,   KC_S,    KC_D,    KC_F,    KC_G,       KC_SCLN, KC_L,    KC_K,    KC_J,    KC_H,
-    SFT_Z,   KC_X,    KC_C,    KC_V,    KC_B,       LAY_SLS, KC_DOT,  KC_COMM, KC_M,    KC_N,
-                      KC_LCTL, KC_LGUI, KC_LALT,    KC_RSFT, LAYER,   LAY_SPC
-),
-
 [_DVORAK] = LAYOUT_split_4x5_3(
     KC_TAB,   KC_ESC,  KC_LPRN, KC_LCBR, KC_LBRC,    KC_BSPC, KC_QUOT, KC_RPRN, KC_RCBR, KC_RBRC,
     KC_QUOT,  KC_COMM, KC_DOT,  KC_P,    KC_Y,       KC_L,    KC_R,    KC_C,    KC_G,    KC_F,
     LAY_A,    KC_O,    KC_E,    KC_U,    KC_I,       KC_S,    KC_N,    KC_T,    KC_H,    KC_D,
     SFT_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,       LAY_Z,   KC_V,    KC_W,    KC_M,    KC_B,
                        KC_LCTL, KC_LGUI, KC_LALT,    KC_RSFT, LAYER,   LAY_SPC
+),
+
+[_QWERTY] = LAYOUT_split_4x5_3(
+    KC_TAB,  KC_ESC,  KC_LPRN, KC_LCBR, KC_LBRC,    KC_BSPC, KC_QUOT, KC_RPRN, KC_RCBR, KC_RBRC,
+    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_P,    KC_O,    KC_I,    KC_U,    KC_Y,
+    LAY_A,   KC_S,    KC_D,    KC_F,    KC_G,       KC_SCLN, KC_L,    KC_K,    KC_J,    KC_H,
+    SFT_Z,   KC_X,    KC_C,    KC_V,    KC_B,       LAY_SLS, KC_DOT,  KC_COMM, KC_M,    KC_N,
+                      KC_LCTL, KC_LGUI, KC_LALT,    KC_RSFT, LAYER,   LAY_SPC
 ),
 
 [_LAYER] = LAYOUT_split_4x5_3(
@@ -99,11 +102,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     QK_BOOT, DB_TOGG, QK_LOCK, QK_LEAD, MAC_LCK,    MAGIC_SWAP_LALT_LGUI, _______, _______, _______, LOCK,
     QK_REP,  QK_AREP, AC_TOGG, EE_CLR,  QK_RBT,     _______, _______, _______, _______, _______,
     _______, DT_DOWN, DT_PRNT, DT_UP,   KC_PGUP,    _______, _______, _______, _______, _______,
-    _______, QWERTY,  KC_HOME, KC_END,  KC_PGDN,    _______, _______, _______, _______, _______,
-                      DM_REC1, DM_RSTP, DM_PLY1,    DVORAK,  _______, _______
+    _______, SWITCH,  KC_HOME, KC_END,  KC_PGDN,    _______, _______, _______, _______, _______,
+                      DM_REC1, DM_RSTP, DM_PLY1,    _______, _______, _______
 ),
 
 };
+
+static custom_keycodes current_keycode = SWITCH - 1;
+
+void rotate_keycodes(void) {
+    current_keycode = SAFE_RANGE + ((current_keycode - SAFE_RANGE)+1)%(SWITCH-SAFE_RANGE);
+    for(int i=SAFE_RANGE, layer=0;i<SWITCH;i++,layer++) {
+        if (i == current_keycode) {
+            layer_on(layer);
+        } else {
+            layer_off(layer);
+        }
+    }
+}
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (get_mods() & MOD_MASK_CAG) {
@@ -117,6 +133,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
         if (keycode == KC_BSPC && (get_mods() & MOD_MASK_ALT)) {
             tap_code(KC_DEL);
+            return false;
+        }
+
+        if (keycode == SWITCH) {
+            rotate_keycodes();
             return false;
         }
     }
