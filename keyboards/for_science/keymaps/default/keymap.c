@@ -130,11 +130,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
 
     if (record->event.pressed) {
-        if (keycode == KC_BSPC && (get_mods() & MOD_MASK_ALT)) {
-            tap_code(KC_DEL);
-            return false;
-        }
-
         if (keycode == SWITCH) {
             rotate_keycodes();
             return false;
