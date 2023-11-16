@@ -8,6 +8,12 @@
         "pid": "0xF22C",
         "device_version": "0.0.1"
     },
+    "build": {
+        "lto": true
+    },
+    "caps_word": {
+        "double_tap_shift_turns_on": true
+    },
     "split": {
         "enabled": true,
         "soft_serial_pin": "D0"
@@ -17,7 +23,16 @@
         "command": true,
         "console": true,
         "extrakey": true,
-        "mousekey": true
+        "mousekey": true,
+        "caps_word": true,
+        "combo": true,
+        "leader": true,
+        "autocorrect": true,
+        "repeat_key": true,
+        "dynamic_macro": true,
+        "send_string": true,
+        "key_lock": true,
+        "dynamic_tapping_term": true
     },
     "matrix_pins": {
         "cols": ["F6", "F7", "B1", "B3", "B2"],
