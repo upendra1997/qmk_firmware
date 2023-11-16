@@ -35,8 +35,8 @@ typedef enum {
 #define SFT_F6 SFT_T(KC_F6)
 #define LAY_A LT(_LAYER, KC_A)
 #define LAY_F1 LT(_LAYER, KC_F1)
-#define LAY_SLS LT(_LAYER, KC_SLSH)
-#define LAY_Z LT(_LAYER, KC_Z)
+#define SFT_SLS SFT_T(KC_SLSH)
+#define SFT_Z SFT_T(KC_Z)
 #define LAY_SPC LT(_LAYER, KC_SPACE)
 
 #define LOCK LGUI(KC_L)
@@ -70,16 +70,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,   KC_ESC,  KC_LPRN, KC_LCBR, KC_LBRC,    KC_BSPC, KC_QUOT, KC_RPRN, KC_RCBR, KC_RBRC,
     KC_QUOT,  KC_COMM, KC_DOT,  KC_P,    KC_Y,       KC_L,    KC_R,    KC_C,    KC_G,    KC_F,
     LAY_A,    KC_O,    KC_E,    KC_U,    KC_I,       KC_S,    KC_N,    KC_T,    KC_H,    KC_D,
-    SFT_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,       LAY_Z,   KC_V,    KC_W,    KC_M,    KC_B,
-                       KC_LCTL, KC_LGUI, KC_LALT,    KC_RSFT, LAYER,   LAY_SPC
+    SFT_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,       SFT_Z,   KC_V,    KC_W,    KC_M,    KC_B,
+                       KC_LCTL, KC_LGUI, KC_LALT,    KC_LSFT, LAYER,   LAY_SPC
 ),
 
 [_QWERTY] = LAYOUT_split_4x5_3(
     KC_TAB,  KC_ESC,  KC_LPRN, KC_LCBR, KC_LBRC,    KC_BSPC, KC_QUOT, KC_RPRN, KC_RCBR, KC_RBRC,
     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_P,    KC_O,    KC_I,    KC_U,    KC_Y,
     LAY_A,   KC_S,    KC_D,    KC_F,    KC_G,       KC_SCLN, KC_L,    KC_K,    KC_J,    KC_H,
-    SFT_Z,   KC_X,    KC_C,    KC_V,    KC_B,       LAY_SLS, KC_DOT,  KC_COMM, KC_M,    KC_N,
-                      KC_LCTL, KC_LGUI, KC_LALT,    KC_RSFT, LAYER,   LAY_SPC
+    SFT_Z,   KC_X,    KC_C,    KC_V,    KC_B,       SFT_SLS, KC_DOT,  KC_COMM, KC_M,    KC_N,
+                      KC_LCTL, KC_LGUI, KC_LALT,    KC_LSFT, LAYER,   LAY_SPC
 ),
 
 [_LAYER] = LAYOUT_split_4x5_3(
