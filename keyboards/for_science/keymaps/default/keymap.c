@@ -114,6 +114,7 @@ void rotate_keycodes(void) {
     for(int i=SAFE_RANGE, layer=0;i<SWITCH;i++,layer++) {
         if (i == current_keycode) {
             layer_on(layer);
+            set_single_persistent_default_layer(layer);
         } else {
             layer_off(layer);
         }
